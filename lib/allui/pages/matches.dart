@@ -116,7 +116,7 @@ class _MatchesState extends State<Matches> {
                                                           .toString(),
                                                   style: TextStyle(
                                                       color: Colors.white,
-                                                      fontSize: 10),
+                                                      fontSize: 15),
                                                 ),
                                               )
                                             ],
@@ -249,107 +249,110 @@ class _MatchesState extends State<Matches> {
                                       child: Column(
                                         children: <Widget>[
                                           Expanded(
-                                            child: Column(
-                                              crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                              children: <Widget>[
-                                                SizedBox(
-                                                  height: size.height * 0.01,
-                                                ),
-                                                Row(
+                                            child: ListView(
+                                              children: [
+                                                Column(
+                                                  crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
                                                   children: <Widget>[
-                                                    userGender(
-                                                        selectedUser.gender),
-                                                    Expanded(
-                                                      child: Text(
-                                                        " " +
-                                                            selectedUser.name +
-                                                            ", " +
-                                                            (DateTime.now()
-                                                                .year -
-                                                                selectedUser
-                                                                    .age
-                                                                    .toDate()
-                                                                    .year)
-                                                                .toString(),
-                                                        style: TextStyle(
-                                                            color: Colors.white,
-                                                            fontSize:
-                                                            size.height *
-                                                                0.05),
-                                                      ),
-                                                    )
-                                                  ],
-                                                ),
-                                                Row(
-                                                  children: <Widget>[
-                                                    Icon(
-                                                      Icons.location_on,
-                                                      color: Colors.white,
-                                                    ),
-                                                    Text(
-                                                      difference != null
-                                                          ? (difference / 1000)
-                                                          .floor()
-                                                          .toString() +
-                                                          " km away"
-                                                          : "away",
-                                                      style: TextStyle(
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                SizedBox(
-                                                  height: size.height * 0.01,
-                                                ),
-                                                Row(
-                                                  mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                                  children: <Widget>[
-                                                    iconWidget(Icons.clear, () {
-                                                      _matchesBloc.add(
-                                                        DeleteUserEvent(
-                                                            currentUser:
-                                                            currentUser.uid,
-                                                            selectedUser:
-                                                            selectedUser
-                                                                .uid),
-                                                      );
-                                                      Navigator.of(context)
-                                                          .pop();
-                                                    }, size.height * 0.08,
-                                                        Colors.blue),
                                                     SizedBox(
-                                                      width: size.width * 0.05,
+                                                      height: size.height * 0.01,
                                                     ),
-                                                    iconWidget(
-                                                        FontAwesomeIcons
-                                                            .solidHeart, () {
-                                                      _matchesBloc.add(
-                                                        AcceptUserEvent(
-                                                            selectedUser:
-                                                            selectedUser
-                                                                .uid,
-                                                            currentUser:
-                                                            currentUser.uid,
-                                                            currentUserPhotoUrl:
-                                                            currentUser
-                                                                .photo,
-                                                            currentUserName:
-                                                            currentUser
-                                                                .name,
-                                                            selectedUserPhotoUrl:
-                                                            selectedUser
-                                                                .photo,
-                                                            selectedUserName:
-                                                            selectedUser
-                                                                .name),
-                                                      );
-                                                      Navigator.of(context)
-                                                          .pop();
-                                                    }, size.height * 0.06,
-                                                        Colors.red),
+                                                    Row(
+                                                      children: <Widget>[
+                                                        userGender(
+                                                            selectedUser.gender),
+                                                        Expanded(
+                                                          child: Text(
+                                                            " " +
+                                                                selectedUser.name +
+                                                                ", " +
+                                                                (DateTime.now()
+                                                                    .year -
+                                                                    selectedUser
+                                                                        .age
+                                                                        .toDate()
+                                                                        .year)
+                                                                    .toString(),
+                                                            style: TextStyle(
+                                                                color: Colors.white,
+                                                                fontSize:
+                                                                15),
+                                                          ),
+                                                        )
+                                                      ],
+                                                    ),
+                                                    Row(
+                                                      children: <Widget>[
+                                                        Icon(
+                                                          Icons.location_on,
+                                                          color: Colors.white,
+                                                        ),
+                                                        Text(
+                                                          difference != null
+                                                              ? (difference / 1000)
+                                                              .floor()
+                                                              .toString() +
+                                                              " km away"
+                                                              : "away",
+                                                          style: TextStyle(
+                                                            color: Colors.white,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    SizedBox(
+                                                      height: 1,
+                                                    ),
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                      children: <Widget>[
+                                                        iconWidget(Icons.clear, () {
+                                                          _matchesBloc.add(
+                                                            DeleteUserEvent(
+                                                                currentUser:
+                                                                currentUser.uid,
+                                                                selectedUser:
+                                                                selectedUser
+                                                                    .uid),
+                                                          );
+                                                          Navigator.of(context)
+                                                              .pop();
+                                                        }, size.height * 0.08,
+                                                            Colors.blue),
+                                                        SizedBox(
+                                                          width: size.width * 0.05,
+                                                        ),
+                                                        iconWidget(
+                                                            FontAwesomeIcons
+                                                                .solidHeart, () {
+                                                          _matchesBloc.add(
+                                                            AcceptUserEvent(
+                                                                selectedUser:
+                                                                selectedUser
+                                                                    .uid,
+                                                                currentUser:
+                                                                currentUser.uid,
+                                                                currentUserPhotoUrl:
+                                                                currentUser
+                                                                    .photo,
+                                                                currentUserName:
+                                                                currentUser
+                                                                    .name,
+                                                                selectedUserPhotoUrl:
+                                                                selectedUser
+                                                                    .photo,
+                                                                selectedUserName:
+                                                                selectedUser
+                                                                    .name),
+                                                          );
+                                                          Navigator.of(context)
+                                                              .pop();
+                                                        }, size.height * 0.06,
+                                                            Colors.red),
+                                                      ],
+                                                    ),
                                                   ],
                                                 ),
                                               ],
