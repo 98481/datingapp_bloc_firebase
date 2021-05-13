@@ -100,7 +100,7 @@ class _MatchesState extends State<Matches> {
                                     containerHeight: size.height * 0.2,
                                     child: Padding(
                                       padding: EdgeInsets.symmetric(
-                                          horizontal: size.height * 0.02),
+                                          horizontal: 2),
                                       child: ListView(
                                         children: <Widget>[
                                           SizedBox(
@@ -110,19 +110,13 @@ class _MatchesState extends State<Matches> {
                                             children: <Widget>[
                                               userGender(selectedUser.gender),
                                               Expanded(
-                                                child: Text(
-                                                  " " +
-                                                      selectedUser.name +
-                                                      ", " +
-                                                      (DateTime.now().year -
-                                                          selectedUser.age
+                                                child: Text(" " + selectedUser.name + ", " + (DateTime.now().year - selectedUser.age
                                                               .toDate()
                                                               .year)
                                                           .toString(),
                                                   style: TextStyle(
                                                       color: Colors.white,
-                                                      fontSize:
-                                                      size.height * 0.05),
+                                                      fontSize: 10),
                                                 ),
                                               )
                                             ],
@@ -141,13 +135,13 @@ class _MatchesState extends State<Matches> {
                                                     " km away"
                                                     : "away",
                                                 style: TextStyle(
-                                                  color: Colors.white,
+                                                  color: Colors.white,fontSize: 10,
                                                 ),
                                               )
                                             ],
                                           ),
                                           SizedBox(
-                                            height: size.height * 0.01,
+                                            height: 2,
                                           ),
                                           Row(
                                             mainAxisAlignment:
@@ -155,7 +149,7 @@ class _MatchesState extends State<Matches> {
                                             children: <Widget>[
                                               Padding(
                                                 padding: EdgeInsets.all(
-                                                    size.height * 0.02),
+                                                    1),
                                                 child: iconWidget(Icons.message,
                                                         () {
                                                       _matchesBloc.add(
